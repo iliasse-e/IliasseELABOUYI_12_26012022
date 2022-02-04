@@ -1,5 +1,15 @@
+/* Colors */
+
 $red : #FF0101;
 $black : #020203;
 $blue : #4AB8FF;
 $yellow : #FDCC0C;
 $pink : #FD5181;
+
+:export {
+    red : $red;
+    black : $black;
+    blue : $blue;
+    yellow : $yellow;
+    pink : $pink
+}

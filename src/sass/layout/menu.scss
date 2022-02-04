@@ -1,5 +1,30 @@
-@use "../utils/variables.scss";
+@import '../utils/variables.scss';
 
 .menu {
-    background-color: $black;
+    background-color:$black;
+    display: flex;
+    flex-direction: column;
+    width: 5%;
+    min-width: 82px;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+
+
+    &__container {
+        display: contents;
+
+        &__btn {
+            background-color: white;
+            width: 2.5em;
+        }
+    }
+
+    &__copyright {
+        transform: rotate(270deg);
+        color: white;
+        white-space: nowrap;
+        margin-top: 200%;
+        font-size: 12px;
+    }
 }

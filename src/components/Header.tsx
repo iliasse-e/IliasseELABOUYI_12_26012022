@@ -7,7 +7,7 @@ import '../sass/layout/header.scss'
 function Header() {
   return (
     <header className='header'>
-        <img src={logo} alt="logo" />
+        <img className='header__logo' src={logo} alt="logo" />
         <Navigation />
     </header>
   );
