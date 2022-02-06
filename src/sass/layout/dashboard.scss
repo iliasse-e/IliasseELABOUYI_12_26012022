@@ -5,6 +5,7 @@
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     width: 100%;
+    overflow: hidden;
 
     &__title {
         grid-area: 1 / 1 / 2 / 6;
@@ -12,7 +13,7 @@
 
     &__charts {
         grid-area: 2 / 1 / 6 / 5;
-        width: 90%;
+        width: 100%;
         height: 50%;
     }
 
@@ -28,7 +29,7 @@
     }
 
     &__title, &__aside {
-        padding: 40px;
+        padding: 0px 40px;
         width: 50%;
         height: 50%;
     }
@@ -58,4 +59,5 @@
 .three_charts_container{
     display: flex;
     justify-content: space-around;
+    padding-top: 40px;
 }

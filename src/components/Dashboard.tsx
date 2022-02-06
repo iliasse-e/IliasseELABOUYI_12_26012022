@@ -1,3 +1,6 @@
+/**
+ * @file Manages the whole dashboard components
+ */
 import React from 'react';
 import logo from '../assets/images/logo.svg'
 import Navigation from './Navigation';

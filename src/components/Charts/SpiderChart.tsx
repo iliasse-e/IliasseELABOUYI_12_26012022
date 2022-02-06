@@ -1,3 +1,7 @@
+/**
+ * @file Manages the performances graph rendering
+ */
+
 import React from "react";
 import "/home/chahid/Documents/Projets-OC/sport-see/src/sass/layout/radarchart.scss";
 import {
@@ -52,24 +56,23 @@ export default function SpiderChart() {
     <RadarChart
     className="spiderchart"
       cx={150}
-      cy={125}
-      outerRadius={100}
+      cy={150}
+      outerRadius={90}
       width={300}
       height={300}
       data={data}
       
     >
-      <PolarGrid strokeWidth={2}/>
+      <PolarGrid strokeWidth={1.5} radialLines={false} />
       <PolarAngleAxis stroke="#FFFFFF" dataKey="subject" />
-      <PolarRadiusAxis />
+      <PolarRadiusAxis opacity={0} />
       <Radar
         name="Mike"
         dataKey="A"
         stroke="#8884d8"
         fill="#FF0101"
         strokeWidth={0}
-        fillOpacity={0.6}
-        
+        fillOpacity={0.6}        
       />
     </RadarChart>
   );

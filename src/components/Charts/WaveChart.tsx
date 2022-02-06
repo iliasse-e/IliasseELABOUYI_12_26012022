@@ -53,6 +53,7 @@ export default class WaveChart extends PureComponent {
   render() {
     return (
       <div className='wavechart' style={{ width: 300, height: 300 }}>
+        <p className='wavechart__title'>Durée moyenne des sessions</p>
         <ResponsiveContainer>
           <AreaChart
             data={data}
@@ -64,7 +65,7 @@ export default class WaveChart extends PureComponent {
             }}
           >
             <CartesianGrid strokeDasharray="3 3" opacity={0} />
-            <XAxis dataKey="name" tickMargin={-20} padding={{left:10, right:20}} stroke="#FFFFFF" strokeOpacity={0} opacity={0.8} />
+            <XAxis dataKey="name" tickMargin={-80} padding={{left:10, right:20}} stroke="#FFFFFF" strokeOpacity={0} opacity={0.8} />
             <YAxis opacity={0}/>
             <Tooltip active allowEscapeViewBox={{x: true}} />
             <Area type="monotone" dataKey="uv" stroke="#FFFFFF" fill="#8884d8" fillOpacity={0} opacity={0.8} />

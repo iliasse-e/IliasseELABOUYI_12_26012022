@@ -5,13 +5,20 @@ import workout from '../assets/images/workout.svg';
 import swimming from '../assets/images/swim.svg';
 import biking from '../assets/images/biking.svg';
 
-const buttons: string[] = [relaxation, swimming, biking, workout]
-
+/**
+ * 
+ * @returns 
+ */
 function Menus() {
+  /**
+   * @type {}
+   */
+  const buttons: string[] = [relaxation, swimming, biking, workout]
+  
   return (
     <aside className='menu'>
         <div className='menu__container'>
-              {buttons.map((btn) => <img className='menu__container__btn btn' src={btn} key={btn}/>)}
+              {buttons.map((btn) => <img className='menu__container__btn btn' src={btn} key={btn} alt="bouton menu"/>)}
         </div>
         <p className='menu__copyright'>Copyright, SportSee 2020</p>
     </aside>

@@ -1,0 +1,11 @@
+.barchart {
+    width: 90%;
+    height: 80%;
+    padding-left: 50px;
+
+    &__title {
+        position: relative;
+        top: 5%;
+        left: 5%;
+    }
+}

@@ -1,3 +1,7 @@
+/**
+ * @file Manages the home page
+ */
+
 import React from 'react';
 import Dashboard from '../components/Dashboard';
 import Menus from '../components/Menus';
