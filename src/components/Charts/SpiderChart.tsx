@@ -3,7 +3,7 @@
  */
 
 import React from "react";
-import "/home/chahid/Documents/Projets-OC/sport-see/src/sass/layout/radarchart.scss";
+import "../../sass/layout/radarchart.scss";
 import {
   Radar,
   RadarChart,

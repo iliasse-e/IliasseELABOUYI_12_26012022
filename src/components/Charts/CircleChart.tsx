@@ -3,29 +3,30 @@
  */
 
 import React from "react";
-import "/home/chahid/Documents/Projets-OC/sport-see/src/sass/layout/circlechart.scss";
+import "../../sass/layout/circlechart.scss";
 import { RadialBarChart, RadialBar, Legend } from "recharts";
+import { ScoreType } from "../../types";
 
 /**
- * Manages a score graph component
+ * Builds a score graph component
  * @returns {html} Score graph
  */
-export default function CircleChart() {
+export default function CircleChart(props) {
 
   /**
    * Datas needed to fill the chart
    * @type { Array.<{name:String, uv: Number, pv: Number, fill: String}> }
    */
-  const data : {name: String, uv: Number, pv: Number, fill: String}[] = [
+  const data : ScoreType[] = [
     {
-      name: "18-24",
+      name: "",
       uv: 100,
       pv: 2400,
       fill: "#FFFFFF"
     },
     {
       name: "50%",
-      uv: 33,
+      uv: props.data * 100,
       pv: 2400,
       fill: "#FF0101"
     },

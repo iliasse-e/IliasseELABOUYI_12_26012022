@@ -8,56 +8,50 @@ import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Resp
 
 
 const data = [
+
   {
-    name: "1",
-    poids: 4000,
-    calories: 2400,
-    amt: 2400,
+      day: '2020-07-01',
+      kilogram: 70,
+      calories: 240
   },
   {
-    name: '2',
-    poids: 3000,
-    calories: 1398,
-    amt: 2210,
+      day: '2020-07-02',
+      kilogram: 69,
+      calories: 220
   },
   {
-    name: '3',
-    poids: 2000,
-    calories: 9800,
-    amt: 2290,
+      day: '2020-07-03',
+      kilogram: 70,
+      calories: 280
   },
   {
-    name: '4',
-    poids: 2780,
-    calories: 3908,
-    amt: 2000,
+      day: '2020-07-04',
+      kilogram: 70,
+      calories: 500
   },
   {
-    name: '5',
-    poids: 1890,
-    calories: 4800,
-    amt: 2181,
+      day: '2020-07-05',
+      kilogram: 69,
+      calories: 160
   },
   {
-    name: '6',
-    poids: 2390,
-    calories: 3800,
-    amt: 2500,
+      day: '2020-07-06',
+      kilogram: 69,
+      calories: 162
   },
   {
-    name: '7',
-    poids: 3490,
-    calories: 4300,
-    amt: 2100,
-  },
+      day: '2020-07-07',
+      kilogram: 69,
+      calories: 390
+  }
 ];
 
 /**
  * Renders bar chart
  */
 export default class Chart extends PureComponent {
+  
   static demoUrl = 'https://codesandbox.io/s/simple-bar-chart-tpz8r';
-
 
   render() {
     return (
@@ -67,7 +61,7 @@ export default class Chart extends PureComponent {
           <BarChart
             width={300}
             height={250}
-            data={data}
+            data={this.props.data}
             margin={{
               top: 5,
               right: 30,
@@ -76,11 +70,11 @@ export default class Chart extends PureComponent {
             }}
           >
             <CartesianGrid strokeDasharray="0 1" opacity={0.7} />
-            <XAxis dataKey="name" opacity={0.9} strokeOpacity={0} minTickGap={20} tickMargin={10} interval={0}/>
+            <XAxis dataKey="day" opacity={0.9} strokeOpacity={0} minTickGap={20} tickMargin={10} interval={0}/>
             <YAxis opacity={1} orientation="right" strokeOpacity={0} tickMargin={10} padding={{top:30}} />
             <Tooltip />
             <Legend align='right' verticalAlign='top' />
-            <Bar dataKey="poids" fill="#020203" barSize={10} radius={[5, 5, 0, 0]} />
+            <Bar dataKey="kilogram" fill="#020203" barSize={10} radius={[5, 5, 0, 0]} />
             <Bar dataKey="calories" fill="#FF0101" barSize={10} radius={[5, 5, 0, 0]}/>
           </BarChart>
         </ResponsiveContainer>
