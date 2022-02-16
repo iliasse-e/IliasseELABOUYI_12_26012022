@@ -12,63 +12,60 @@ import {
   PolarRadiusAxis
 } from "recharts";
 
+const kind = {
+  1: 'cardio',
+  2: 'energy',
+  3: 'endurance',
+  4: 'strength',
+  5: 'speed',
+  6: 'intensity'
+}
+
 const data = [
   {
-    subject: "Intensité",
-    A: 120,
-    B: 110,
-    fullMark: 150
+      value: 200,
+      kind: 1
   },
   {
-    subject: "Cardio",
-    A: 98,
-    B: 130,
-    fullMark: 150
+      value: 240,
+      kind: 2
   },
   {
-    subject: "Force",
-    A: 86,
-    B: 130,
-    fullMark: 150
+      value: 80,
+      kind: 3
   },
   {
-    subject: "Energie",
-    A: 99,
-    B: 100,
-    fullMark: 150
+      value: 80,
+      kind: 4
   },
   {
-    subject: "Physics",
-    A: 85,
-    B: 90,
-    fullMark: 150
+      value: 220,
+      kind: 5
   },
   {
-    subject: "Endurance",
-    A: 65,
-    B: 85,
-    fullMark: 150
+      value: 110,
+      kind: 6
   }
-];
+]
 
-export default function SpiderChart() {
+export default function PerformanceChart(props) {
   return (
     <RadarChart
-    className="spiderchart"
+    className="radarchart"
       cx={150}
       cy={150}
       outerRadius={90}
       width={300}
       height={300}
-      data={data}
+      data={props.performance}
       
     >
       <PolarGrid strokeWidth={1.5} radialLines={false} />
-      <PolarAngleAxis stroke="#FFFFFF" dataKey="subject" />
+      <PolarAngleAxis stroke="#FFFFFF" dataKey="kind" />
       <PolarRadiusAxis opacity={0} />
       <Radar
         name="Mike"
-        dataKey="A"
+        dataKey="value"
         stroke="#8884d8"
         fill="#FF0101"
         strokeWidth={0}

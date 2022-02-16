@@ -47,7 +47,7 @@ const data = [
   },
 ];
 
-export default class WaveChart extends PureComponent {
+export default class AverageSessionChart extends PureComponent {
   static demoUrl = 'https://codesandbox.io/s/area-chart-in-responsive-container-e6dx0';
 
   render() {
@@ -56,7 +56,7 @@ export default class WaveChart extends PureComponent {
         <p className='wavechart__title'>Durée moyenne des sessions</p>
         <ResponsiveContainer>
           <AreaChart
-            data={this.props.data}
+            data={this.props.averageSession}
             margin={{
               top: 10,
               right: 0,
@@ -66,7 +66,7 @@ export default class WaveChart extends PureComponent {
           >
             <CartesianGrid strokeDasharray="3 3" opacity={0} />
             <XAxis dataKey="day" tickMargin={-80} padding={{left:10, right:20}} stroke="#FFFFFF" strokeOpacity={0} opacity={0.8} />
-            <YAxis opacity={0}/>
+            <YAxis padding={{top:0, bottom:100}} opacity={0}/>
             <Tooltip active allowEscapeViewBox={{x: true}} />
             <Area type="monotone" dataKey="sessionLength" stroke="#FFFFFF" fill="#8884d8" fillOpacity={0} opacity={0.8} />
           </AreaChart>

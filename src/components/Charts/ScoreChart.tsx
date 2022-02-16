@@ -3,7 +3,7 @@
  */
 
 import React from "react";
-import "../../sass/layout/circlechart.scss";
+import "../../sass/layout/scorechart.scss";
 import { RadialBarChart, RadialBar, Legend } from "recharts";
 import { ScoreType } from "../../types";
 
@@ -11,7 +11,7 @@ import { ScoreType } from "../../types";
  * Builds a score graph component
  * @returns {html} Score graph
  */
-export default function CircleChart(props) {
+export default function ScoreChart(props) {
 
   /**
    * Datas needed to fill the chart
@@ -26,15 +26,15 @@ export default function CircleChart(props) {
     },
     {
       name: "50%",
-      uv: props.data * 100,
+      uv: props.score * 100,
       pv: 2400,
       fill: "#FF0101"
     },
   ];
 
   return (
-    <div className="circlechart">
-      <h3 className="circlehart__title">Score</h3>
+    <div className="scorechart">
+      <h3 className="scorehart__title">Score</h3>
 
       <RadialBarChart
       width={300}
@@ -52,9 +52,9 @@ export default function CircleChart(props) {
           />
       </RadialBarChart>
 
-      <div className="circlechart__legend">
-          <p className="circlechart__legend__value">{data[1].uv}%</p>
-          <p className="circlechart__legend__txt">de votre objectif</p>
+      <div className="scorechart__legend">
+          <p className="scorechart__legend__value">{data[1].uv}%</p>
+          <p className="scorechart__legend__txt">de votre objectif</p>
       </div>
     </div>
   );

@@ -6,50 +6,10 @@ import React, { PureComponent } from 'react';
 import "/home/chahid/Documents/Projets-OC/sport-see/src/sass/layout/barchart.scss";
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
-
-const data = [
-
-  {
-      day: '2020-07-01',
-      kilogram: 70,
-      calories: 240
-  },
-  {
-      day: '2020-07-02',
-      kilogram: 69,
-      calories: 220
-  },
-  {
-      day: '2020-07-03',
-      kilogram: 70,
-      calories: 280
-  },
-  {
-      day: '2020-07-04',
-      kilogram: 70,
-      calories: 500
-  },
-  {
-      day: '2020-07-05',
-      kilogram: 69,
-      calories: 160
-  },
-  {
-      day: '2020-07-06',
-      kilogram: 69,
-      calories: 162
-  },
-  {
-      day: '2020-07-07',
-      kilogram: 69,
-      calories: 390
-  }
-];
-
 /**
  * Renders bar chart
  */
-export default class Chart extends PureComponent {
+export default class ActivityChart extends PureComponent {
   
   static demoUrl = 'https://codesandbox.io/s/simple-bar-chart-tpz8r';
 
@@ -61,7 +21,7 @@ export default class Chart extends PureComponent {
           <BarChart
             width={300}
             height={250}
-            data={this.props.data}
+            data={this.props.activity}
             margin={{
               top: 5,
               right: 30,

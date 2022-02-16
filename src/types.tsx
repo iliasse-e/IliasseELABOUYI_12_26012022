@@ -6,7 +6,6 @@ export interface ScoreType {
 }
 
 export interface UserData {
-  userInfos: any;
   index:{
     id: Number,
     userInfos: {
