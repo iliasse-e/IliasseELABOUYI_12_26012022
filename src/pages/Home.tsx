@@ -1,5 +1,6 @@
 /**
  * @file Manages the home page
+ * Imports data from service folder
  */
 
 import React, { useEffect, useState } from 'react';
@@ -12,7 +13,13 @@ import { getUserData } from '../service/getData';
 import { getUserActivity } from '../service/getActivity';
 import { getUserPerformance } from '../service/getPerformance';
 import { getUserAverageSession } from '../service/getAverageSession';
+import { buttons } from '../data/menus';
+import Loader from '../components/Loader';
 
+/**
+ * Component called in App
+ * @returns 
+ */
 function Home() {
   const [userData, setUserData] = useState(null)
   const [userActivity, setUserActivity] = useState(null)
@@ -62,9 +69,9 @@ function Home() {
 
 
 
-  return (userData === null || undefined) ? (<div>Nuttin</div>) : (
+  return (userData === null || undefined) ? (<Loader />) : (
     <main>
-        <Menus />
+        <Menus buttons={buttons} />
         <Dashboard userData={userData} icons={indicators(userData)} activity={userActivity} averageSession={userAverageSessions} performance={userPerformance} />
     </main>
   );

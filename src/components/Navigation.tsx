@@ -1,21 +1,17 @@
 import React from 'react';
+import { navLinks } from '../data/links';
 
 /**
  * Manages to display the navigation
+ * @param { String[] } array of navigation links (strings) 
  * @returns { HTMLElement } navigation
  */
-function Navigation() {
-    /**
-     * Gathers all navigation links available
-     * @type {Array[string]}
-     * @example ["Home", "Gallery", "Contact"]
-     */
-    const navLinks : string[] = ["Accueil", "Profil", "Réglage", "Communauté"]
+function Navigation(props: { navLinks: String[]; }) {
 
     return (
         <nav className='header__nav'>
             <ul>
-                {navLinks.map((link) => <li className='header__nav__link link' key={link}>{link}</li>)}
+                {props.navLinks.map((link) => <li className='header__nav__link link' key={link.toString()}>{link}</li>)}
             </ul>
         </nav>
     );

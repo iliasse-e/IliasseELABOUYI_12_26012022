@@ -1,5 +1,5 @@
 export const getUserPerformance =  async () => {
-    let url = `http://localhost:3000/user/${process.env.REACT_APP_USER_ID}/performance`;
+    let url = `${process.env.REACT_APP_URL}/user/${process.env.REACT_APP_USER_ID}/performance`;
     let response = await fetch(url)
     let data = await response.json()
     .catch((error) => console.error("Error type : ", error))

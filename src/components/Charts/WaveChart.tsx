@@ -1,6 +1,11 @@
+/**
+ * @file Manages the average session graph rendering
+ */
+
 import React, { PureComponent } from 'react';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import "../../sass/layout/wavechart.scss";
+import { averageSessionStyle } from '../utils/style';
 
 const data = [
   {
@@ -47,16 +52,21 @@ const data = [
   },
 ];
 
-export default class AverageSessionChart extends PureComponent {
-  static demoUrl = 'https://codesandbox.io/s/area-chart-in-responsive-container-e6dx0';
 
-  render() {
+/**
+ * Component called in Dashboard
+ */
+export default function AverageSessionChart(props) {
+
+  const demoUrl = 'https://codesandbox.io/s/area-chart-in-responsive-container-e6dx0';
+
+  
     return (
       <div className='wavechart' style={{ width: 300, height: 300 }}>
         <p className='wavechart__title'>Durée moyenne des sessions</p>
         <ResponsiveContainer>
           <AreaChart
-            data={this.props.averageSession}
+            data={props.averageSession}
             margin={{
               top: 10,
               right: 0,
@@ -67,11 +77,11 @@ export default class AverageSessionChart extends PureComponent {
             <CartesianGrid strokeDasharray="3 3" opacity={0} />
             <XAxis dataKey="day" tickMargin={-80} padding={{left:10, right:20}} stroke="#FFFFFF" strokeOpacity={0} opacity={0.8} />
             <YAxis padding={{top:0, bottom:100}} opacity={0}/>
-            <Tooltip active allowEscapeViewBox={{x: true}} />
+            <Tooltip active allowEscapeViewBox={{x: true}} contentStyle={averageSessionStyle} />
             <Area type="monotone" dataKey="sessionLength" stroke="#FFFFFF" fill="#8884d8" fillOpacity={0} opacity={0.8} />
           </AreaChart>
         </ResponsiveContainer>
       </div>
     );
-  }
+
 }

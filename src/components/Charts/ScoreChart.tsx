@@ -9,6 +9,7 @@ import { ScoreType } from "../../types";
 
 /**
  * Builds a score graph component
+ * Component called in Dashboard
  * @returns {html} Score graph
  */
 export default function ScoreChart(props) {

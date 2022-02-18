@@ -2,10 +2,17 @@ import fire from '../assets/images/fire.svg';
 import food from '../assets/images/food.svg';
 import fruit from '../assets/images/fruit.svg';
 import cheeseburger from '../assets/images/cheeseburger.svg';
-import { Indicators } from '../types';
+import { Indicators, UserData } from '../types';
 
-
-export function indicators(userData) {
+/**
+ * Gathers the informations of the aside dashboard indicators icons
+ * such as the icon (image), the color of the icon (color), the title (title),
+ * and the content (quantity)
+ * @param userData { UserData } needed to extract the quantity content
+ * @returns { Indicators[] } array of objects that contains of these informations
+ * usefull to display the icons
+ */
+export function indicators(userData: UserData): Indicators[] {
 
   return [
     {

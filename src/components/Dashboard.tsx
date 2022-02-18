@@ -8,15 +8,20 @@ import '../sass/layout/dashboard.scss';
 import AverageSessionChart from './Charts/WaveChart';
 import PerformanceChart from './Charts/PerformanceChart';
 import ScoreChart from './Charts/ScoreChart';
-import { Indicators, UserData } from '../types';
-import ActivityChart from './Charts/ActivityChart';
+import { Activity, AverageSession, Indicators, UserData } from '../types';
+import { ActivityChart } from './Charts/ActivityChart';
 
-function Dashboard(props) {
+/**
+ * Component called in Home page
+ * @param props 
+ * @returns 
+ */
+function Dashboard(props: { userData: { userInfos: { firstName: String; }; todayScore: Number; }; activity: Activity; averageSession: AverageSession; performance: Performance; icons: { color: String; image: string | undefined; title: String; quantity: String; }[]; }) {
   return (
     <div className='dashboard'>
         <div className='dashboard__title'>
-          <h1>Bonjour {props.userData.userInfos.firstName}</h1>
-          <p>Félicitations ! Vous avez explosé vos objectifs hier</p>
+          <h1>Bonjour <span className='dashboard__title__firstname'>{props.userData.userInfos.firstName}</span></h1>
+          <p className='dashboard__title__message'>Félicitations ! Vous avez explosé vos objectifs hier</p>
         </div>
 
         <div className='dashboard__charts'>
@@ -29,7 +34,7 @@ function Dashboard(props) {
         </div>
         
         <aside className='dashboard__aside'>
-            {props.icons.map((indicator: { color: any; image: string | undefined; title: {} | null | undefined; quantity: boolean | React.ReactChild | React.ReactFragment | React.ReactPortal | null | undefined; }) => <div className='dashboard__aside__indicator-container'>
+            {props.icons.map((indicator) => <div className='dashboard__aside__indicator-container'>
                         <img className='dashboard__aside__indicator btn' style={{backgroundColor:indicator.color}} src={indicator.image} key={indicator.title}/>
                         <h3 className='title'>{indicator.quantity}</h3>
                         <p className='quantity'>{indicator.title}</p>
