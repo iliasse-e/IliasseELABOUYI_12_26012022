@@ -2,7 +2,8 @@ import React from 'react';
 import { navLinks } from '../data/links';
 
 /**
- * Manages to display the navigation
+ * Builds the navigation
+ * Component called in Header
  * @param { String[] } array of navigation links (strings) 
  * @returns { HTMLElement } navigation
  */

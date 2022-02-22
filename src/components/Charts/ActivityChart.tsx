@@ -9,10 +9,11 @@ import { activityStyle } from '../utils/style';
 import { Activity } from '../../types';
 
 /**
- * Renders bar chart
+ * Builds the activity chart graph
+ * Component called in dashboard
+ * @param {Activity}
  */
 export function ActivityChart(props) {
-
   
   const demoUrl = 'https://codesandbox.io/s/simple-bar-chart-tpz8r';
 

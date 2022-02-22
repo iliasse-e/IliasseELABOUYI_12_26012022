@@ -3,7 +3,7 @@
  * @returns { Array.<Object> } Array of session objects, which contains day, kilogram and calories
  */
 export const getUserActivity =  async () => {
-    let url = `http://localhost:3000/user/${process.env.REACT_APP_USER_ID}/activity`;
+    let url = `${process.env.REACT_APP_URL}/user/${process.env.REACT_APP_USER_ID}/activity`;
     let response = await fetch(url)
     let data = await response.json()
     .catch((error) => console.error("Error type : ", error))

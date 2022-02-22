@@ -25,54 +25,27 @@ function Home() {
   const [userActivity, setUserActivity] = useState(null)
   const [userPerformance, setUserPerformance] = useState(null)
   const [userAverageSessions, setUserAverageSessions] = useState(null)
-
-
-  useEffect(() => {
-		const getData = async () => {
-			const request = await getUserData();
-			if (!request) return console.log("Error request");
-      console.log(request)
-			setUserData(request);
-		};
-		getData();
-	}, []);
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    const getData = async () => {
-      const request = await getUserPerformance();
-      if (!request) return console.log("Error request");
-      console.log(request)
-      setUserPerformance(request);
-    };
-    getData();
-  }, []);
-
-  useEffect(() => {
-		const getData = async () => {
-			const request = await getUserActivity();
-			if (!request) return console.log("Error request");
-      console.log(request)
-			setUserActivity(request);
-		};
-		getData();
-	}, []);
-
-  useEffect(() => {
-		const getData = async () => {
-			const request = await getUserAverageSession();
-			if (!request) return console.log("Error request");
-      console.log(request)
-			setUserAverageSessions(request);
-		};
-		getData();
-	}, []);
+    Promise.all([getUserData(), getUserPerformance(), getUserAverageSession(), getUserActivity()])
+    .then(response => {
+      console.log(response)
+      setUserData(response[0])
+      setUserPerformance(response[1])
+      setUserAverageSessions(response[2])
+      setUserActivity(response[3])
+      setIsLoading(false)
+    })
+  })
 
 
-
-  return (userData === null || undefined) ? (<Loader />) : (
+  return (isLoading) ? (<Loader />) : (
     <main>
         <Menus buttons={buttons} />
-        <Dashboard userData={userData} icons={indicators(userData)} activity={userActivity} averageSession={userAverageSessions} performance={userPerformance} />
+        <Dashboard 
+        userData={userData} icons={indicators(userData)} activity={userActivity}
+         averageSession={userAverageSessions} performance={userPerformance} />
     </main>
   );
 }

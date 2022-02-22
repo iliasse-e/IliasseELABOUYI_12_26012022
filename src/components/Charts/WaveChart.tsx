@@ -5,6 +5,7 @@
 import React, { PureComponent } from 'react';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import "../../sass/layout/wavechart.scss";
+import { AverageSession } from '../../types';
 import { averageSessionStyle } from '../utils/style';
 
 const data = [
@@ -54,7 +55,9 @@ const data = [
 
 
 /**
+ * Builds the average session graph
  * Component called in Dashboard
+ * @param {AverageSession}
  */
 export default function AverageSessionChart(props) {
 
