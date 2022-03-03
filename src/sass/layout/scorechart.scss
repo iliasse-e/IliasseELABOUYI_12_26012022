@@ -1,26 +1,34 @@
+.scorechart {
+    background-color: rgba(223, 223, 223, 0.205);
+    border-radius: 5px;
+    padding: 20px;
+
+}
+
 .scorechart__title {
     position: relative;
     margin: 0;
-    top: 25px;
+    top: 10%;
+    left: -230%;
 }
 
 .scorechart__legend {
 
     position: relative;
-    top: -40%;
-    left: 40%;
+    top: 38%;
+    left: -180%;
     
 
     &__value {
-        font-size: 2em;
+        font-size: 1.8em;
         color: black;
-        font-weight: 700;
+        font-weight: 500;
         margin: 0;
     }
    
     &__txt {
-        width: 20%;
-        line-height: 25px;
+        width: 55%;
+        line-height: 15px;
         font-size: 1em;
         color: rgb(97, 96, 96);
     }

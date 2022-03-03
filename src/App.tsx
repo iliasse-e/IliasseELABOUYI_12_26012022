@@ -4,14 +4,16 @@ import './App.css';
 import Header from './components/Header';
 import Home from './pages/Home';
 
-
-function App() {
+/**
+ * App root container called in index.tsx file
+ * @returns 
+ */
+const App = (): JSX.Element => {
 
   return (
     <>
       <Header />
       <Home />
-      <div>{}</div>
     </>
   );
 }

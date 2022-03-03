@@ -2,40 +2,48 @@
  * @file Manages the whole dashboard components
  */
 import React from 'react';
-import logo from '../assets/images/logo.svg'
-import Navigation from './Navigation';
 import '../sass/layout/dashboard.scss';
 import AverageSessionChart from './Charts/WaveChart';
 import PerformanceChart from './Charts/PerformanceChart';
 import ScoreChart from './Charts/ScoreChart';
 import { Activity, AverageSession, Indicators, UserData } from '../types';
 import { ActivityChart } from './Charts/ActivityChart';
+import { customMessages } from '../data/messages';
+
+interface DashboardProps {
+  userData: UserData,
+  icons: any,
+  activity: Activity,
+  averageSession: AverageSession,
+  performance: Performance
+}
 
 /**
+ * Gathers all graphics and data icons
  * Component called in Home page
- * @param props 
+ * @param props used as data for all graphics
  * @returns 
  */
-function Dashboard(props: { userData: { userInfos: { firstName: String; }; todayScore: Number; }; activity: Activity; averageSession: AverageSession; performance: Performance; icons: { color: String; image: string | undefined; title: String; quantity: String; }[]; }) {
+const Dashboard: React.FC<DashboardProps> = ({userData, icons, activity, averageSession, performance}) :JSX.Element => {
   return (
     <div className='dashboard'>
         <div className='dashboard__title'>
-          <h1>Bonjour <span className='dashboard__title__firstname'>{props.userData.userInfos.firstName}</span></h1>
-          <p className='dashboard__title__message'>Félicitations ! Vous avez explosé vos objectifs hier</p>
+          <h1>Bonjour <span className='dashboard__title__firstname'>{userData.userInfos.firstName}</span></h1>
+          <p className='dashboard__title__message'>{customMessages(userData.todayScore)}</p>
         </div>
 
         <div className='dashboard__charts'>
-          <ActivityChart activity={props.activity} />
+          <ActivityChart activity={activity} />
           <div className='three_charts_container'>
-            <AverageSessionChart averageSession={props.averageSession} />
-            <PerformanceChart performance={props.performance} />
-            <ScoreChart score={props.userData.todayScore} />
+            <AverageSessionChart averageSession={averageSession} />
+            <PerformanceChart performance={performance} />
+            <ScoreChart score={userData.todayScore} />
           </div>
         </div>
         
         <aside className='dashboard__aside'>
-            {props.icons.map((indicator) => <div className='dashboard__aside__indicator-container'>
-                        <img className='dashboard__aside__indicator btn' style={{backgroundColor:indicator.color}} src={indicator.image} key={indicator.title}/>
+            {icons.map((indicator: Indicators) => <div className='dashboard__aside__indicator-container' key={indicator.title.toString()}>
+                        <img className='dashboard__aside__indicator btn' style={{backgroundColor:indicator.color.toString()}} src={indicator.image.toString()} alt={indicator.title.toString()}/>
                         <h3 className='title'>{indicator.quantity}</h3>
                         <p className='quantity'>{indicator.title}</p>
                         </div>)}

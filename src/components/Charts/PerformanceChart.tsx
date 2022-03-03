@@ -13,30 +13,35 @@ import {
 } from "recharts";
 
 /**
+ * Builds the performance chart graph
  * Component called in Dashboard
  */
 export default function PerformanceChart(props) {
   return (
-    <RadarChart
+    <RadarChart style={{
+      width: "30%",
+      maxWidth: 250,
+      height: 230,
+      display: "flex",
+      padding: "0px 5px"
+    }}
     className="radarchart"
-      cx={150}
-      cy={150}
-      outerRadius={90}
-      width={300}
-      height={300}
+      cx={120} // abcise line
+      cy={120}
+      outerRadius={70} // web size
+      width={250}
+      height={230}
       data={props.performance}
-      
     >
       <PolarGrid strokeWidth={1.5} radialLines={false} />
-      <PolarAngleAxis stroke="#FFFFFF" dataKey="kind" />
+      <PolarAngleAxis style={{fontSize: "0.9em"}} stroke="#FFFFFF" dataKey="kind" fontSize={12} />
       <PolarRadiusAxis opacity={0} />
       <Radar
-        name="Mike"
         dataKey="value"
         stroke="#8884d8"
         fill="#FF0101"
         strokeWidth={0}
-        fillOpacity={0.6}        
+        fillOpacity={0.6}
       />
     </RadarChart>
   );

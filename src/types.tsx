@@ -3,7 +3,9 @@
  */
 
 
-// Service folder
+/*** Service folder ***/
+
+// Score data
 
 export interface ScoreType {
     name: String,
@@ -11,6 +13,9 @@ export interface ScoreType {
     pv: Number,
     fill: String
 }
+
+
+// User data
 
 export interface UserData {
     id: Number,
@@ -28,26 +33,35 @@ export interface UserData {
     }
 }
 
+
+// Activity data
+
 export interface Activity { 
     userId: Number,
-    sessions: [
-        {
-            day: String,
-            kilogram: Number,
-            calories: Number
-        }
-    ]
+    sessions: Array<Session>
 }
+
+export interface Session {
+    day: String,
+    kilogram: Number,
+    calories: Number
+}
+
+
+// AverageSession data
 
 export interface AverageSession {
     userId: Number,
-    sessions: [
-        {
-            day: Number,
-            sessionLength: Number
-        }
-    ]
+    sessions: Array<Sessions>
 }
+
+export interface Sessions {
+    day: Number,
+    sessionLength: Number
+}
+
+
+// Performance data
 
 export interface Performance {
     userId: Number,
@@ -59,16 +73,18 @@ export interface Performance {
           5: 'speed',
           6: 'intensity'
       },
-      data: [
-          {
-              value: Number,
-              kind: Number
-          }
-      ]
+      data: Array<Datas>
+}
+
+export interface Datas {
+    value: Number,
+    kind: Number
 }
 
 
-// Data folder
+/*** Data folder types ***/
+
+// indocators
 
 export interface Indicators {
     image: String,
@@ -78,7 +94,7 @@ export interface Indicators {
 }
 
 
-// messages file
+// messages file type
 
 export interface CustomMessages {
     state: "succes" | "fair" | "failure",

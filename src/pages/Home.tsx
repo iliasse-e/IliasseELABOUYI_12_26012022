@@ -17,10 +17,12 @@ import { buttons } from '../data/menus';
 import Loader from '../components/Loader';
 
 /**
+ * Gathers all the API calls to deliver them on different props
+ * Root of all datas
  * Component called in App
  * @returns 
  */
-function Home() {
+const Home = () => {
   const [userData, setUserData] = useState(null)
   const [userActivity, setUserActivity] = useState(null)
   const [userPerformance, setUserPerformance] = useState(null)
@@ -37,7 +39,7 @@ function Home() {
       setUserActivity(response[3])
       setIsLoading(false)
     })
-  })
+  },[])
 
 
   return (isLoading) ? (<Loader />) : (

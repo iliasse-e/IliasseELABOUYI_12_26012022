@@ -1,15 +1,18 @@
 import React from 'react';
-import logo from '../assets/images/logo.svg'
+import logo from '../assets/images/logo.svg';
 import Navigation from './Navigation';
-import '../sass/layout/header.scss'
+import '../sass/layout/header.scss';
 import { navLinks } from '../data/links';
 
-
-function Header() {
+/**
+ * Displays the header
+ * @returns Html content to display
+ */
+const Header = (): JSX.Element => {
   return (
     <header className='header'>
         <img className='header__logo' src={logo} alt="logo" />
-        <Navigation navLinks={navLinks} />
+        <Navigation navigationLinks={navLinks} />
     </header>
   );
 }

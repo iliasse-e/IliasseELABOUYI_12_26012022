@@ -1,3 +1,8 @@
+/**
+ * Gets user performance data from database via fetch method
+ * Formats "kind" value type (number) to string 
+ * @returns { Array.<Object> } Array of session objects, which contains day, kilogram and calories
+ */
 export const getUserPerformance =  async () => {
     let url = `${process.env.REACT_APP_URL}/user/${process.env.REACT_APP_USER_ID}/performance`;
     let response = await fetch(url)

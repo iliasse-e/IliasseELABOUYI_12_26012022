@@ -1,5 +1,6 @@
 /**
  * Gets user activity from database via fetch method
+ * Formats date from "YYYY-MM-DD" to "D"
  * @returns { Array.<Object> } Array of session objects, which contains day, kilogram and calories
  */
 export const getUserActivity =  async () => {
